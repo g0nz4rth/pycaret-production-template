@@ -40,7 +40,7 @@ This is a template for an end-to-end data science project using PyCaret for mach
     │   └── test_train_pipeline.py     <- Test training script.
     │
     ├── bentofile.yaml     <- File used to build a deployable Bento API.
-    ├── Pipfile            <- The requirements file for reproducing the environment (generated with pipenv install)
+    ├── Pipfile            <- The requirements file for reproducing the environment
     ├── Makefile           <- Makefile with commands like `make install` or `make activate`
     ├── LICENSE            <- The specified LICENSE for the project.
     ├── README.md          <- The top-level README for developers using this project.
