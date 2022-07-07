@@ -3,7 +3,10 @@ labels:
   owner: pycaret-project-owner
   stage: dev
 include:
+  - "data/"
   - "*.py"
+exclude:
+  - "tests/"
 python:
   package:
     - pycaret
