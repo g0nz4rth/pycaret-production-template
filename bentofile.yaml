@@ -1,9 +1,10 @@
 service: "service.py:svc"
 labels:
   owner: pycaret-project-owner
-  stage: dev
+  stage: prod
 include:
   - "data/"
+  - "conf/"
   - "*.py"
 exclude:
   - "tests/"
