@@ -1,0 +1,11 @@
+service: "service.py:svc"
+labels:
+  owner: pycaret-project-owner
+  stage: dev
+include:
+  - "*.py"
+python:
+  package:
+    - pycaret
+    - pandas
+    - bentoml
