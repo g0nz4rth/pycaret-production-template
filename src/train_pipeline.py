@@ -1,14 +1,16 @@
-import hydra
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+
 import numpy as np
 import pandas as pd
-from sklearn.pipeline import Pipeline
 from omegaconf import DictConfig
+from sklearn.pipeline import Pipeline
+from conf.config_core import config
 from pycaret.regression import (setup, create_model, 
                                 finalize_model, save_model)
 
 
-@hydra.main(version_base=None, config_path="../conf/", config_name="config")
-def load_data(config: DictConfig) -> pd.DataFrame:
+def load_data() -> pd.DataFrame:
     """
     This function loads the processed dataset for training the pipeline.
     """
@@ -20,11 +22,10 @@ def save_pipeline(pipeline: Pipeline, filepath: str) -> None:
     This function serializes a trained pipeline in the folder
     meant to store it.
     """
-    save_model(pipeline, filepath)
+    save_model(pipeline, filepath, verbose=False)
 
 
-@hydra.main(version_base=None, config_path="../conf/", config_name="config")
-def run_training(config: DictConfig) -> Pipeline:
+def run_training() -> Pipeline:
     """
     This function trains and serializes the entire pipeline.
     """
