@@ -15,13 +15,12 @@ def load_data(config: DictConfig) -> pd.DataFrame:
     return pd.read_csv(config.data_config.processed.path)
 
 
-@hydra.main(version_base=None, config_path="../conf/", config_name="config")
-def save_pipeline(pipeline: Pipeline, config: DictConfig) -> None:
+def save_pipeline(pipeline: Pipeline, filepath: str) -> None:
     """
     This function serializes a trained pipeline in the folder
     meant to store it.
     """
-    save_model(pipeline, config.pipeline_config.path)
+    save_model(pipeline, filepath)
 
 
 @hydra.main(version_base=None, config_path="../conf/", config_name="config")
@@ -81,7 +80,7 @@ def run_training(config: DictConfig) -> Pipeline:
 
     # serializing model
     finalized_pipeline = finalize_model(model)
-    save_pipeline(pipeline=finalized_pipeline)
+    save_pipeline(pipeline=finalized_pipeline, filepath=config.pipeline_config.path)
 
 
 if __name__ == "__main__":
