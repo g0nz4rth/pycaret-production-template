@@ -82,6 +82,8 @@ def run_training(config: DictConfig) -> Pipeline:
     finalized_pipeline = finalize_model(model)
     save_pipeline(pipeline=finalized_pipeline, filepath=config.pipeline_config.path)
 
+    return finalized_pipeline
+
 
 if __name__ == "__main__":
     run_training()
