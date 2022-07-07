@@ -6,7 +6,7 @@ import pandas as pd
 from math import radians, sqrt, sin, cos, asin
 
 
-def check_holiday(date: str, country: str = 'US'):
+def check_holiday(date: str, country: str = 'US') -> bool:
     """
     This function checks if a given string date
     is a holiday or not.
@@ -16,7 +16,7 @@ def check_holiday(date: str, country: str = 'US'):
     return int(date in country_holidays)
 
 
-def apply_heversine(latitude1, longitude1, latitude2, longitude2):
+def apply_heversine(latitude1, longitude1, latitude2, longitude2) -> list:
     """
     This function calculates the distance (in km) between 
     two coordinates (lat, long).
@@ -34,7 +34,7 @@ def apply_heversine(latitude1, longitude1, latitude2, longitude2):
     return dist
 
 
-def process_data(filepath: str):
+def process_data(filepath: str) -> pd.DataFrame:
     """
     This function takes the raw dataset as an input
     and then make it ready for modeling.
@@ -81,3 +81,7 @@ def process_data(filepath: str):
     ]
 
     return data
+
+
+if __name__ == "__main__":
+    process_data()
