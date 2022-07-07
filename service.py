@@ -1,39 +1,31 @@
-# libs
-import os
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+
 import bentoml
 import numpy as np
 import pandas as pd
+from conf.config_core import config
 from bentoml.io import NumpyNdarray, JSON
 from pycaret.regression import load_model, predict_model
 
 
-class UberFareRegressorRunnable(bentoml.Runnable):
+class PyCaretRunnable(bentoml.Runnable):
     """https://docs.bentoml.org/en/latest/concepts/runner.html"""
     SUPPORTS_CPU_MULTI_THREADING = True
     
     def __init__(self):
-        self.pipeline = load_model(
-            os.path.join('models', 'xgb_regressor'), 
-            verbose=False
-        )
+        self.pipeline = load_model(config.pipeline_config.path, verbose=False)
         
     
     @bentoml.Runnable.method(batchable=True)
-    def predict(self, sample: np.ndarray):
+    def run_model(self, sample: np.ndarray):
         """
         This method will take a real world sample and then
-        predict a fare amount to it.
+        estimate something.
         """
-        # formatting the input data
         data = pd.DataFrame([sample])
-        data.columns = [
-            'pickup_year', 'pickup_month', 'pickup_dayofyear', 
-            'pickup_dayofweek', 'pickup_hour', 'is_holiday', 
-            'passenger_count', 'pickup_latitude', 'pickup_longitude', 
-            'dropoff_latitude', 'dropoff_longitude', 'trip_distance_km'
-        ]
+        data.columns = config.pipeline_config.features
         
-        # making predictions
         predictions = predict_model(self.pipeline, data=data)
         predictions.Label = np.exp(predictions.Label)
         
@@ -41,17 +33,17 @@ class UberFareRegressorRunnable(bentoml.Runnable):
     
 
 # Initiating Runner
-uber_fare_regression_runner = bentoml.Runner(UberFareRegressorRunnable)
+pycare_pipeline_runnable = bentoml.Runner(PyCaretRunnable)
 
 
 # Setting Up the Service
-svc = bentoml.Service('uber_fare_price_regressor', runners=[uber_fare_regression_runner])
+svc = bentoml.Service('pycaret_estimator_bentoml_service', runners=[pycare_pipeline_runnable])
 
 @svc.api(input=NumpyNdarray(), output=JSON())
-def regressor(sample: np.ndarray):
+def predict(sample: np.ndarray):
     """
     This function takes the input values and then
-    run the regressor.
+    run the loaded pycaret model.
     """
-    predictions = uber_fare_regression_runner.predict.run(sample)
+    predictions = pycare_pipeline_runnable.run_model.run(sample)
     return predictions
