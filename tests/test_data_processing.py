@@ -1,7 +1,5 @@
 import os, sys
-
-from py import process
-sys.path.insert(1, os.path.abspath('.'))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 import hydra
 import numpy as np
