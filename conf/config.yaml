@@ -58,11 +58,13 @@ pipeline_config:
   normalize: True
   ignore_low_variance: True
   use_gpu: False
+  silent: True
+  html: False
 
 
 # Model config
 model_config:
-  algorithm: xgboost
+  algorithm: 'xgboost'
   objective: 'reg:squarederror'
   base_score: 0.5
   booster: 'gbtree'
