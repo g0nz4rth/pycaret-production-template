@@ -8,7 +8,7 @@ data_config:
   processed:
     dir: data/processed
     name: processed_uber_trip_tax_data.csv
-    path: ${processed.dir}/${processed.name}
+    path: ${data_config.processed.dir}/${data_config.processed.name}
 
   finalized:
     dir: data/finalized
@@ -18,9 +18,9 @@ data_config:
 
 # Pipeline config
 pipeline_config:
-  dir: models/
-  name: xgb_regression_pipeline
-  path: ${pipeline.dir}/${pipeline.name}
+  dir: models
+  name: xgb_regressor
+  path: ${pipeline_config.dir}/${pipeline_config.name}
 
   features:
     - pickup_year
