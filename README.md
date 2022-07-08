@@ -90,3 +90,15 @@ $ make activate
 #or
 $ pipenv shell
 ```
+
+Run Pytest to check if the data processing and model retraining scripts are working properly (and yes, they are, at least on my machine):
+```
+$ pytest
+```
+
+For now, the last step is to run the BentoML server with an estimation service (that comes from the trained pipeline in the models folder) as a REST API.:
+```
+$ bentoml serve service:svc
+```
+
+The **service** keyword in the command shown above reference the *service.py* file.
