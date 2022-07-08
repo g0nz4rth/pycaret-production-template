@@ -24,17 +24,15 @@ This project is highly inspired by the <a href="https://github.com/cookiecutter/
 
 At least for me, and based on my job requirements, Cookiecutter has a lot of extra directories I don't need at all and have never used on my modelings. In this modification I got rid of these folders, leaving only the most critical ones for a data science modeling project that will generate a trained pipeline that need to go to a production server.
 
-Unlike in a Cookiecutter project, by default I'm using a YAML config file to manage all the pipeline and model information as a sort of "single source of truth". By laveraging a YAML config file to set 
+Unlike in a Cookiecutter project, by default I'm using a YAML config file to manage all the pipeline and model information as a sort of "single source of truth". By laveraging a YAML config file to set lists of parameters, paths, model hyperparameters and etc we can avoid to hardcode a lot of this stuff.
 
 **Author**: Arthur G.
-***
 
 ## Main Project Dependencies
 + dvc == 2.12.1"
 + pytest == 7.1.2"
 + bentoml == 1.0.0rc3"
 + pycaret[full] == 2.3.10"
-***
 
 ## Project Structure
 ------------
