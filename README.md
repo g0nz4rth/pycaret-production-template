@@ -80,17 +80,13 @@ Unlike in a Cookiecutter project, by default I'm using a YAML config file to man
 You can start by running one of these two commands:
 ```
 $ make install
-```
-or
-```
+# or
 $ pipenv install
 ```
 
 And all the dependencies will be installed within an environment created by pipenv (I expect you to have pipenv installed). To activate the environment and start working on the notebooks or with BentoML, you can run:
 ```
 $ make activate
-```
-or
-```
+#or
 $ pipenv shell
 ```
