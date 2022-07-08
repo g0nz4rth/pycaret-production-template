@@ -2,10 +2,10 @@
 <img src="https://i.ibb.co/c2ZRy10/pycaret-bentoml-repo-logo.png" width="700" />
 </p>
 
-<center>
+<p align="center">
     <h3><b>A data science template for projects built on top of PyCaret <br> 
     for ML modeling and BentoML for production-ready model serving.</b></h3>
-</center>
+</p>
 
 Just run:
 ```
