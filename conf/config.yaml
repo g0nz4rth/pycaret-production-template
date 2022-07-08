@@ -3,7 +3,7 @@ data_config:
   raw:
     dir: data/raw
     name: uber-drive-fare-data.csv
-    path: ${raw.dir}/${raw.name}
+    path: ${data_config.raw.dir}/${data_config.raw.name}
 
   processed:
     dir: data/processed
@@ -13,7 +13,7 @@ data_config:
   finalized:
     dir: data/finalized
     name: train.csv
-    path: ${finalized.dir}/${finalized.name}
+    path: ${data_config.finalized.dir}/${data_config.finalized.name}
 
 
 # Pipeline config
