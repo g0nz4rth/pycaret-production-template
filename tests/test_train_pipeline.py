@@ -1,20 +1,16 @@
 import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
-import hydra
-import numpy as np
-import pandas as pd
-from omegaconf import DictConfig
+from conf.config_core import config
 from src.train_pipeline import run_training
-from sklearn.pipeline import Pipeline
+from xgboost.sklearn import XGBRegressor
 
 
-@hydra.main(version_base=None, config_path="../conf/", config_name="config.yaml")
-def test_train_pipeline_func(config: DictConfig) -> None:
+def test_train_pipeline_func() -> None:
     """
     This function tests if the train pipeline function is working properly,
     producing a trained pipeline.
     """
-    pipeline = run_training(config)
+    trained_model = run_training()
 
-    assert type(pipeline) == type(Pipeline)
+    assert type(trained_model) == type(XGBRegressor())

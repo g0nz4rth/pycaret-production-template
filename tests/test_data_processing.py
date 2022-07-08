@@ -1,15 +1,12 @@
 import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
-import hydra
 import numpy as np
-import pandas as pd
-from omegaconf import DictConfig
-from src.data_processing import *
+from conf.config_core import config
+from src.data_processing import process_data
 
 
-@hydra.main(version_base=None, config_path="../conf/", config_name="config.yaml")
-def test_data_processing_func(config: DictConfig) -> None:
+def test_data_processing_func() -> None:
     """
     This function tests if the current data processing function
     is producting the right output.
@@ -31,6 +28,6 @@ def test_data_processing_func(config: DictConfig) -> None:
         'fare_amount': np.dtype('float64')
     }
 
-    processed_data = process_data(config.raw.path)
+    processed_data = process_data()
 
     assert processed_data.dtypes.to_dict() == template
