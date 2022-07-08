@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    <h3><b>A data science template for projects built on top of PyCaret <br> 
+    <h3 align="center"><b>A data science template for projects built on top of PyCaret <br> 
     for ML modeling and BentoML for production-ready model serving.</b></h3>
 </p>
 
