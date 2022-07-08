@@ -2,6 +2,10 @@
 <img src="https://i.ibb.co/c2ZRy10/pycaret-bentoml-repo-logo.png" width="700" />
 </p>
 
+<h4 align="center">
+    <a href="https://pycaret.org/" target="blank">PyCaret</a> • <a href="https://www.bentoml.com/" target="blank">BentoML</a> • <a href="https://docs.pytest.org/" target="blank">PyTest</a> • <a href="https://dvc.org/" target="blank">DVC</a>
+</h4>
+
 <h3 align="center">
     <b>
         A data science template for projects built on top of PyCaret <br> 
