@@ -1,6 +1,6 @@
-<center>
+<p align="center">
 <img src="https://i.ibb.co/c2ZRy10/pycaret-bentoml-repo-logo.png" width="700" />
-</center>
+</p>
 
 <center>
     <h3><b>A data science template for projects built on top of PyCaret <br> 
@@ -13,9 +13,9 @@ $ bentoml serve service:svc
 ```
 
 And get:
-<center>
+<p align="center">
 <img src="https://i.ibb.co/HgQyfZr/bentoml-uber-fare.png" width="900" />
-</center>
+</p>
 
 ## Project Description
 This project is highly inspired by the <a href="https://github.com/cookiecutter/cookiecutter" target="blank">Cookiecutter</a> data science template project. Cookiecutter is a standard choice for many data scientist when it comes to structure am end-to-end data science project. I've been using this library for more than a year now, and I've started to deal with some "problems" (totally personal point of view based on my own job requirements) when I need to deploy a model product of my data science modeling.
