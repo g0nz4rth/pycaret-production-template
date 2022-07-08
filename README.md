@@ -20,11 +20,11 @@ And get:
 </p>
 
 ## Project Description
-This project is highly inspired by the <a href="https://github.com/cookiecutter/cookiecutter" target="blank">Cookiecutter</a> data science template project. Cookiecutter is a standard choice for many data scientist when it comes to structure am end-to-end data science project. I've been using this library for more than a year now, and I've started to deal with some "problems" (totally personal point of view based on my own job requirements) when I need to deploy a model product of my data science modeling.
+This project is highly inspired by the <a href="https://github.com/cookiecutter/cookiecutter" target="blank">Cookiecutter</a> data science template project. Cookiecutter is a standard choice for many data scientist when it comes to structure an end-to-end data science project. I've been using this library for more than a year now, and I've started to deal with some "problems" (totally personal point of view based on my own job requirements) when I need to deploy a model product of my data science modeling.
 
 At least for me, and based on my job requirements, Cookiecutter has a lot of extra directories I don't need at all and have never used on my modelings. In this modification I got rid of these folders, leaving only the most critical ones for a data science modeling project that will generate a trained pipeline that need to go to a production server.
 
-Unlike in a Cookiecutter project, by default I'm using a YAML config file to manage all the pipeline and model information as a sort of "single source of truth". By laveraging a YAML config file to set lists of parameters, paths, model hyperparameters and etc we can avoid to hardcode a lot of this stuff.
+Unlike in a Cookiecutter project, by default I'm using a YAML config file to manage all the pipeline and model information as a sort of "single source of truth". By leveraging a YAML config file to set lists of predictors, paths, model hyperparameters and etc we can avoid hard-coding a lot of this stuff.
 
 **Author**: Arthur G.
 
