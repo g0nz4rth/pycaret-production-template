@@ -4,6 +4,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 import holidays
 import numpy as np
 import pandas as pd
+from conf.config_core import config
 from math import radians, sqrt, sin, cos, asin
 
 
@@ -35,12 +36,12 @@ def apply_heversine(latitude1, longitude1, latitude2, longitude2) -> list:
     return dist
 
 
-def process_data(filepath: str) -> pd.DataFrame:
+def process_data() -> pd.DataFrame:
     """
     This function takes the raw dataset as an input
     and then make it ready for modeling.
     """
-    data = pd.read_csv(filepath)
+    data = pd.read_csv(config.data_config.raw.path)
 
     # removing useless columns & converting dtypes
     data = data.drop(columns=['Unnamed: 0', 'key'])
