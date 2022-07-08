@@ -75,3 +75,22 @@ Unlike in a Cookiecutter project, by default I'm using a YAML config file to man
 + Just run one file to generate production-ready API with BentoML CLI.
 + Use Pipenv to ease the project dependencies management.
 + Manage code files as well as data and model files on the same project using DVC.
+
+## Run The Project
+You can start by running one of these two commands:
+```
+$ make install
+```
+or
+```
+$ pipenv install
+```
+
+And all the dependencies will be installed within an environment created by pipenv (I expect you to have pipenv installed). To activate the environment and start working on the notebooks or with BentoML, you can run:
+```
+$ make activate
+```
+or
+```
+$ pipenv shell
+```
